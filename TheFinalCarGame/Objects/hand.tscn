@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsajmj1nvqkdv"]
+
+[ext_resource type="PackedScene" uid="uid://betnqduq5h5en" path="res://Assets/People/hand.glb" id="1_3fpag"]
+
+[node name="hand" type="Node3D"]
+
+[node name="hand" parent="." instance=ExtResource("1_3fpag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243431, 0, -0.26863)

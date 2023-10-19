@@ -1,0 +1,35 @@
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://bg6vfcg4b84s4"]
+
+[ext_resource type="Texture2D" uid="uid://b2ckwhux25x6u" path="res://Assets/Cars/ps1bus_bus_basecolor-nambus_opacity-nambus_opacity.png" id="1_b0nba"]
+[ext_resource type="Texture2D" uid="uid://bkf67kwj82eea" path="res://Assets/Cars/nambus_opacity.png" id="2_6gp2v"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_wy6ng"]
+texture = ExtResource("1_b0nba")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_28qbv"]
+texture = ExtResource("2_6gp2v")
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+
+
+}
+"
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_wy6ng")
+nodes/fragment/2/position = Vector2(-20, 160)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_28qbv")
+nodes/fragment/3/position = Vector2(-240, 540)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)

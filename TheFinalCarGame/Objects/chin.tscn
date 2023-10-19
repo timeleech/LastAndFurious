@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjt276nafqxef"]
+
+[ext_resource type="PackedScene" uid="uid://t6a6004kqak2" path="res://Objects/chin.glb" id="1_j1mrj"]
+[ext_resource type="Script" path="res://addons/godot-jigglebones-dc84d5b3d2abf200b863c41468d45d634cae47e1/addons/jigglebones/jigglebone.gd" id="2_6b2h7"]
+
+[node name="chin" instance=ExtResource("1_j1mrj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97667, 0, -0.385581)
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.70234, 0.758608, 0.0514909)
+
+[node name="Jigglebone" type="Node3D" parent="Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.999381, 0.0351585, -0.000252179, -0.0351518, 0.99899, -0.027993, -0.000732269, 0.0279846, 0.999608, 2.33007, 2.65617, -0.294696)
+top_level = true
+script = ExtResource("2_6b2h7")
+bone_name = "chining"
+stiffness = 1.0
+damping = 0.0
+gravity = Vector3(0, 0, 0)
+forward_axis = 0
+
+[node name="Camera3D" type="Camera3D" parent="Armature/Skeleton3D/Jigglebone" index="0"]
+transform = Transform3D(0.998098, -0.0616262, -0.00167315, 0.0616405, 0.997145, 0.0436093, -0.0010191, -0.0436295, 0.999047, -0.303, 1, -0.776)
